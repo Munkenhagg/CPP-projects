@@ -1,5 +1,0 @@
-#!/data/data/com.termux/files/usr/bin/bash
-NAME="$1"
-BUILD_DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" &> /dev/null && pwd )"
-BUILD_NAME="${NAME%.*}"
-clang++ -O2 "$NAME" -o "$BUILD_DIR/${BUILD_NAME}_compiled"
