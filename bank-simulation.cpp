@@ -5,6 +5,7 @@ using namespace std;
 
 int main() {
     string brightRed = "\033[1;91m";
+    string brightYellow = "\033[1;93m";
     string resetColor = "\033[0m";
     double currentmoney = 0.0;
     string opt;
@@ -37,7 +38,7 @@ int main() {
 	        cout << brightRed << "Nothing to withdraw!\n" << resetColor;
 	    }
         }
-        else if (opt == "3" || opt == "amount") cout << "Balance: " << currentmoney << endl;
+        else if (opt == "3" || opt == "amount") cout << "Balance: " << brightYellow << currentmoney << resetColor << endl;
         else cout << brightRed << opt << " is not recognized as an option!" << resetColor;
     }
     return 0;
