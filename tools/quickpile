@@ -1,0 +1,4 @@
+NAME="$1"
+BUILD_DIR="$(pwd)"
+BUILD_NAME="${NAME%.*}"
+clang++ -O2 "$NAME" -o "$BUILD_DIR/${BUILD_NAME}_compiled"
