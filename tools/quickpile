@@ -1,4 +1,16 @@
+set -e
+touch "$HOME/.quickpilerc"
 NAME="$1"
-BUILD_DIR="$(pwd)"
+BUILD_DIR="$(cat $HOME/.quickpilerc)"
 BUILD_NAME="${NAME%.*}"
-clang++ -O2 "$NAME" -o "$BUILD_DIR/${BUILD_NAME}_compiled"
+if [ "$1" = "--configure" ]; then
+    printf 'which directory do you wish for me to live in: '
+    read conf
+    echo "$conf" > "$HOME/.quickpilerc"
+    exit 0
+fi
+if [ -z "$BUILD_DIR" ]; then
+    echo "Error: .quickpilerc couldnt be found. make sure \$HOME is set and .quickpilerc is configured"
+    exit 1
+fi
+clang++ -O2 "$BUILD_DIR/$NAME" -o "$BUILD_DIR/${BUILD_NAME}_compiled"
