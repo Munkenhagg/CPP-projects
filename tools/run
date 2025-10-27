@@ -12,7 +12,7 @@ NAMEALT="${BASE%.*}"
 
 # Directory where this script lives
 touch "$HOME/.quickpilerc"
-DIR="$(cat $HOME/.quickpilerc)"
+DIR="$(head -n 1 $HOME/.quickpilerc)"
 if [ "$1" = "--configure" ]; then
     printf 'which directory do you wish for me to live in: '
     read conf
